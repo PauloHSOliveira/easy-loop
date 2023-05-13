@@ -1,6 +1,7 @@
 import fastify from 'fastify';
 import mercurius from 'mercurius';
 import mongoose from 'mongoose';
+import {resolvers} from './resolvers/auth'
 // import cors from 'fastify-cors';
 // import helmet from 'fastify-helmet';
 
@@ -8,15 +9,39 @@ const app = fastify();
 
 app.register(mercurius, {
   schema: `
-    type Query {
-      hello: String
-    }
+  type Query {
+    hello: String
+  }
+  
+  type User {
+    id: ID!
+    email: String!
+    password: String!
+  }
+  
+  type AuthPayload {
+    user: User
+    token: String!
+  }
+  
+  input RegisterInput {
+    email: String!
+    password: String!
+  }
+  
+  input LoginInput {
+    email: String!
+    password: String!
+  }
+  
+  type Mutation {
+    register(input: RegisterInput!): AuthPayload!
+    login(input: LoginInput!): AuthPayload!
+  }
+  
   `,
-  resolvers: {
-    Query: {
-      hello: () => 'world',
-    },
-  },
+  resolvers,
+  graphiql: true
 });
 
 mongoose.connect('mongodb://localhost:27017/my-db').then(() => {
