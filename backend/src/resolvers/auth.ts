@@ -20,6 +20,13 @@ export const resolvers = {
     register: async (_, { input }) => {
       try {
         const hashedPassword = await bcrypt.hash(input.password, 10);
+
+        const userAlreadyExists = await UserModel.findOne({ email : input.email })
+
+        if (userAlreadyExists) {
+          throw new Error('User already exists')
+        }
+
         const user = await UserModel.create({
           email: input.email,
           password: hashedPassword,
