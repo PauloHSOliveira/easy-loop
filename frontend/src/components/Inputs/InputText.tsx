@@ -51,6 +51,7 @@ const InputText = ({
       {type === 'password' && (
         <InputRightElement>
           <IconButton
+            bgColor={'transparent'}
             aria-label="show-password"
             onClick={() =>
               setType((old) => (old === 'password' ? 'text' : 'password'))
