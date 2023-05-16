@@ -42,6 +42,7 @@ const InputText = ({
         type={newType}
         placeholder={placeholder}
         isInvalid={!!errors[name]}
+        variant={'primary'}
       />
       {errors[name] && (
         <span role="alert" style={{ color: 'red' }}>

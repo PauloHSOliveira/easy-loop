@@ -282,6 +282,8 @@ const SignUp = () => {
                     mt={4}
                     alignSelf="flex-end"
                     onClick={goToNext}
+                    variant={'solid'}
+                    colorScheme="blue"
                   >
                     Proximo
                   </Button>
