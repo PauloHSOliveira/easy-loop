@@ -11,7 +11,7 @@ import { ReactElement, useState } from 'react'
 import { Control, useController } from 'react-hook-form'
 
 type InputTypes = {
-  icon: ReactElement
+  icon?: ReactElement
   name: string
   control: Control<any>
   placeholder: string
