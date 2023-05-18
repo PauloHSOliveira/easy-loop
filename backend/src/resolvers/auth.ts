@@ -36,7 +36,7 @@ export const resolvers = {
         };
       } catch (error) {
         console.error(error);
-        throw new Error('Error registering user');
+        throw new Error();
       }
     },
     login: async (_, { input }) => {
@@ -51,7 +51,13 @@ export const resolvers = {
         };
       } catch (error) {
         console.error(error);
-        throw new Error('Error logging in user');
+        if (error.message === 'User not found') {
+          throw new Error('The provided email address does not exist.');
+        } else if (error.message === 'Invalid password') {
+          throw new Error('The provided password is incorrect.');
+        } else {
+          throw new Error('An error occurred while logging in.');
+        }
       }
     },
   },

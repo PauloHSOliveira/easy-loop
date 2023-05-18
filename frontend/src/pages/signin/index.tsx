@@ -1,19 +1,42 @@
 import { Box, Flex, Button, Text, Link } from '@chakra-ui/react'
 import { Lock, EnvelopeSimple } from '@phosphor-icons/react'
 import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-relay'
+import { loginQuery } from '../../fetchers/auth'
 
 import { InputText } from '../../components'
 
 const SignIn = () => {
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-    control,
-  } = useForm()
+  const [commitMutation, isLoading] = useMutation(loginQuery)
 
-  const onSubmit = (data: any) => {
-    // eslint-disable-next-line no-console
-    console.log(data)
+  const { handleSubmit, control } = useForm()
+
+  const login = (data: any) =>
+    new Promise((resolve, reject) => {
+      const { email, password } = data
+
+      commitMutation({
+        variables: {
+          input: {
+            email,
+            password,
+          },
+        },
+        onCompleted: (response, errors) => {
+          if (errors && errors.length > 0) {
+            reject(errors[0])
+          } else {
+            resolve(response)
+          }
+        },
+        onError: (error) => {
+          reject(error)
+        },
+      })
+    })
+
+  const onSubmit = async (data: any) => {
+    login(data)
   }
 
   return (
@@ -35,20 +58,20 @@ const SignIn = () => {
               <InputText
                 name="email"
                 placeholder="Email"
-                icon={<EnvelopeSimple />}
+                icon={<EnvelopeSimple size={24} color="#828282" />}
                 control={control}
               />
               <InputText
                 name="password"
                 placeholder="Password"
                 type="password"
-                icon={<Lock />}
+                icon={<Lock size={24} color="#828282" />}
                 control={control}
               />
 
               <Button
                 type="submit"
-                isLoading={isSubmitting}
+                isLoading={isLoading}
                 mt={4}
                 alignSelf="flex-end"
               >

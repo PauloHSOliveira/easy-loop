@@ -44,13 +44,13 @@ const SignUp = () => {
       title: 'Sou MEI',
       description: 'Vou me cadastrar usando o meu CNPJ',
       icon: <Storefront color="#0686FC" size={40} />,
-      id: '1',
+      id: '2',
     },
     {
       title: 'Sou Empresa',
       description: 'Vou me cadastrar usando o meu CNPJ',
       icon: <IdentificationCard color="#0686FC" size={40} />,
-      id: '1',
+      id: '3',
     },
   ]
 
@@ -65,25 +65,25 @@ const SignUp = () => {
             name="name"
             placeholder="Nome"
             control={control}
-            icon={<PersonSimple />}
+            icon={<PersonSimple size={24} color="#828282" />}
           />
           <InputText
             name="email"
             placeholder="Email"
-            icon={<EnvelopeSimple />}
+            icon={<EnvelopeSimple size={24} color="#828282" />}
             control={control}
           />
           <InputText
             name="phoneNumber"
             placeholder="Contato"
             control={control}
-            icon={<PhoneCall />}
+            icon={<PhoneCall size={24} color="#828282" />}
           />
           <InputText
             name="password"
             placeholder="Password"
             type="password"
-            icon={<Lock />}
+            icon={<Lock size={24} color="#828282" />}
             control={control}
           />
         </Flex>
@@ -94,7 +94,7 @@ const SignUp = () => {
   const Step2 = () => {
     return (
       <Flex direction={'column'} width={'100%'}>
-        <Text mb={12} fontSize={24}>
+        <Text mb={12} fontSize={24} color="#828282">
           Qual o seu Perfil
         </Text>
 
@@ -258,15 +258,14 @@ const SignUp = () => {
   })
 
   return (
-    <Flex height="100vh">
+    <Flex flex={1} height="100vh" width={'100vw'}>
       <Box
-        width={'66%'}
+        width={'70%'}
         alignItems={'center'}
         display={'flex'}
         justifyContent={'flex-start'}
-        pl={24}
       >
-        <Box width={'55%'} textAlign={'center'}>
+        <Box pl={24} width={'70%'} textAlign={'center'}>
           <Stepper width={'100%'} index={activeStep}>
             {steps.map((step, index) => (
               <Step
@@ -293,7 +292,7 @@ const SignUp = () => {
           </Stepper>
         </Box>
       </Box>
-      <Box bgColor={'#000'} width={'33%'} height={'100%'} />
+      <Box bgColor={'#000'} width={'30%'} height={'100%'} />
     </Flex>
   )
 }
