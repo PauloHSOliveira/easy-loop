@@ -2,10 +2,12 @@ import fastify from 'fastify';
 import mercurius from 'mercurius';
 import mongoose from 'mongoose';
 import {resolvers} from './resolvers/auth'
-// import cors from 'fastify-cors';
+import cors from '@fastify/cors'
 // import helmet from 'fastify-helmet';
 
 const app = fastify();
+
+app.register(cors)
 
 app.register(mercurius, {
   schema: `
@@ -55,7 +57,7 @@ mongoose.connect('mongodb://localhost:27017/my-db').then(() => {
 // app.register(helmet);
 
 app.listen({
-    port: 3000,
+    port: 3333,
     host: '0.0.0.0',
   }, (err, address) => {
     if (err) {

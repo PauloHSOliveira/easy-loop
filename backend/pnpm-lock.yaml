@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fastify/cors': ^8.2.1
   '@types/argon2-browser': ^1.18.1
   '@types/jest': ^29.5.1
   '@types/jsonwebtoken': ^9.0.2
@@ -18,6 +19,7 @@ specifiers:
   typescript: ^5.0.4
 
 dependencies:
+  '@fastify/cors': 8.2.1
   argon2-browser: 1.18.0
   bcrypt: 5.1.0
   cors: 2.8.5
@@ -397,6 +399,13 @@ packages:
       ajv: 8.12.0
       ajv-formats: 2.1.1_ajv@8.12.0
       fast-uri: 2.2.0
+    dev: false
+
+  /@fastify/cors/8.2.1:
+    resolution: {integrity: sha512-2H2MrDD3ea7g707g1CNNLWb9/tYbmw7HS+MK2SDcgjxwzbOFR93JortelTIO8DBFsZqFtEpKNxiZfSyrGgYcbw==}
+    dependencies:
+      fastify-plugin: 4.5.0
+      mnemonist: 0.39.5
     dev: false
 
   /@fastify/deepmerge/1.3.0:
@@ -2600,6 +2609,12 @@ packages:
     hasBin: true
     dev: false
 
+  /mnemonist/0.39.5:
+    resolution: {integrity: sha512-FPUtkhtJ0efmEFGpU14x7jGbTB+s18LrzRL2KgoWz9YvcY3cPomz8tih01GbHwnGk/OmkOKfqd/RAQoc8Lm7DQ==}
+    dependencies:
+      obliterator: 2.0.4
+    dev: false
+
   /mongodb-connection-string-url/2.6.0:
     resolution: {integrity: sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==}
     dependencies:
@@ -2759,6 +2774,10 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /obliterator/2.0.4:
+    resolution: {integrity: sha512-lgHwxlxV1qIg1Eap7LgIeoBWIMFibOjbrYPIPJZcI1mmGAI2m3lNYpK12Y+GBdPQ0U1hRwSord7GIaawz962qQ==}
     dev: false
 
   /on-exit-leak-free/2.1.0:

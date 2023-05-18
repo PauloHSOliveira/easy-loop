@@ -17,7 +17,7 @@ export const inputStyles = {
             color: mode('secondaryGray.900', 'white')(props),
             borderColor: mode('secondaryGray.100', 'whiteAlpha.100')(props),
             borderRadius: '8px',
-            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.25)',
+            boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.25)',
             fontSize: 'sm',
             py: '20px',
             _placeholder: { color: 'gray.400' },
