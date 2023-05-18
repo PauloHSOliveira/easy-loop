@@ -41,7 +41,9 @@ export const resolvers = {
     },
     login: async (_, { input }) => {
       try {
+        console.log(input)
         const user = await UserModel.findOne({ email: input.email });
+        console.log(user)
         if (!user) throw new Error('User not found');
         const isPasswordValid = await bcrypt.compare(input.password, user.password);
         if (!isPasswordValid) throw new Error('Invalid password');

@@ -80,7 +80,7 @@ const SignIn = () => {
 
               <Text mt={4} textAlign="center">
                 Dont have an account?{' '}
-                <Link color="blue.500" href="#">
+                <Link color="blue.500" href="/signup">
                   Sign up
                 </Link>
               </Text>
